@@ -16,15 +16,12 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log("event: ", event);
-
-      if (session) {
-        setToken(session.access_token);
-        navigate("/home");
-      } else if (event === "SIGNED_OUT") {
-        console.log("SIGNED_OUT: ", event);
+      if (event === "SIGNED_OUT") {
         setToken(null);
         navigate("/");
+      } else if (session) {
+        setToken(session.access_token);
+        navigate("/home");
       }
     });
 
