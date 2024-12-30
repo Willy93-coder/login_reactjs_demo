@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router";
-import { LoginScreen } from "./pages/login-screen";
-import { HomeScreen } from "./pages/home-screen";
+import { Login } from "./pages/login";
+import { Home } from "./pages/home";
+import { CreateAccount } from "./pages/create-account";
 
 function App() {
   return (
     <div className="grid h-lvh items-center justify-items-center">
       <Routes>
-        <Route path="/" element={<LoginScreen />} />
-        <Route path="/home" element={<HomeScreen />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </div>
   );
