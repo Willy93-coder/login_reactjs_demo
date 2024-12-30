@@ -14,14 +14,12 @@ export function HomeScreen() {
   }, []);
 
   return (
-    <div>
-      <h3>Welcome</h3>
-      {user && (
-        <div>
-          <p>{user.name}</p>
-        </div>
-      )}
-      <Button onClick={async () => await signOut()}>Sign Out</Button>
+    <div className="flex flex-col items-center justify-center">
+      <h3 className="mb-4 text-6xl">Welcome</h3>
+      {user && <p className="mb-4 text-3xl">{user.name}</p>}
+      <Button className="w-full" onClick={async () => await signOut()}>
+        Sign Out
+      </Button>
     </div>
   );
 }
