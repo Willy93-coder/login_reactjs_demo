@@ -41,7 +41,7 @@ export function SignUpForm() {
             <FormItem className="mb-6">
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="example@gmail.com" {...field} />
+                <Input placeholder="m@email.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
