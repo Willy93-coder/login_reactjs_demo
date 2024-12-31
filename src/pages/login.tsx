@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import { useAuthContext } from "@/hooks/useAuthContext";
+import { SignInForm } from "@/components/sign-in-form/sign-in-form";
 
 export function Login() {
   const { signInWithGoogleProvider } = useAuthContext();
@@ -11,6 +12,12 @@ export function Login() {
         <h3 className="text-2xl font-semibold">Login</h3>
       </section>
       <section className="w-4/5">
+        <SignInForm />
+        <div className="relative mb-6 text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
+          <span className="relative z-10 bg-background px-2 text-muted-foreground">
+            Or continue with
+          </span>
+        </div>
         <Button
           variant="outline"
           className="w-full"
