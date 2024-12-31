@@ -27,11 +27,17 @@ export function SignInForm() {
   return (
     <form onSubmit={handleSubmit(signIn)}>
       <div className="mb-6">
-        <Label>Email</Label>
+        <Label className="mb-3 inline-block">Email</Label>
         <Input {...register("email")} placeholder="m@email.com" required />
       </div>
       <div className="mb-6">
-        <Label>Password</Label>
+        <div className="mb-3 flex items-center">
+          <Label>Password</Label>
+          <p className="ml-auto text-sm underline-offset-4 hover:cursor-pointer hover:underline">
+            Forgot your password?
+          </p>
+        </div>
+
         <Input {...register("password")} type="password" required />
       </div>
       <Button type="submit" className="mb-6 w-full">
