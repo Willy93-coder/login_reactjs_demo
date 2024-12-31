@@ -1,3 +1,4 @@
+import { SignInInputsModel } from "@/components/sign-in-form/model";
 import { SignUpInputsModel } from "@/components/sign-up-form/model";
 import { mapToUserModel, User } from "@/lib/models/user-model";
 import { supabase } from "@/supabase/supabase-client";
@@ -7,6 +8,17 @@ async function signInWithGoogleProvider(): Promise<void> {
     provider: "google",
   });
   if (error) throw new Error("Login error");
+}
+
+async function signInWithEmailAndPassword({
+  email,
+  password,
+}: SignInInputsModel): Promise<void> {
+  const { error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+  if (error) throw new Error("Credentials are not correct");
 }
 
 async function signUpWithEmailAndPassword({
@@ -35,6 +47,7 @@ async function getUserInfo(): Promise<User | undefined> {
 
 export {
   signInWithGoogleProvider,
+  signInWithEmailAndPassword,
   signUpWithEmailAndPassword,
   signOut,
   getUserInfo,
