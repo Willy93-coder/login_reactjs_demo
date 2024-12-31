@@ -13,8 +13,10 @@ import { signUpSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpWithEmailAndPassword } from "@/auth/auth";
 import { Button } from "../ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export function SignUpForm() {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -25,10 +27,19 @@ export function SignUpForm() {
   });
 
   async function onSubmit(values: z.infer<typeof signUpSchema>) {
-    await signUpWithEmailAndPassword({
-      email: values.email,
-      password: values.password,
-    });
+    try {
+      await signUpWithEmailAndPassword({
+        email: values.email,
+        password: values.password,
+      });
+    } catch (error) {
+      if (error instanceof Error)
+        toast({
+          variant: "destructive",
+          title: "Something went wrong!",
+          description: `${error.message}`,
+        });
+    }
   }
 
   return (
