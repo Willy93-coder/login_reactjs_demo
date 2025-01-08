@@ -20,6 +20,9 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
         setToken(null);
         navigate("/");
       } else if (session) {
+        if (event === "PASSWORD_RECOVERY") {
+          setToken(session.access_token);
+        }
         setToken(session.access_token);
         navigate("/home");
       }
