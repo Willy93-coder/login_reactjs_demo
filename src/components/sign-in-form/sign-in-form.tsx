@@ -5,6 +5,7 @@ import { Label } from "../ui/label";
 import { SignInInputsModel } from "./model";
 import { signInWithEmailAndPassword } from "@/auth/auth";
 import { useToast } from "@/hooks/use-toast";
+import { ForgotPasswordDialog } from "../forgot-password/forgot-password-dialog";
 
 export function SignInForm() {
   const { register, handleSubmit } = useForm<SignInInputsModel>();
@@ -33,9 +34,7 @@ export function SignInForm() {
       <div className="mb-6">
         <div className="mb-3 flex items-center">
           <Label>Password</Label>
-          <p className="ml-auto text-sm underline-offset-4 hover:cursor-pointer hover:underline">
-            Forgot your password?
-          </p>
+          <ForgotPasswordDialog />
         </div>
 
         <Input {...register("password")} type="password" required />
