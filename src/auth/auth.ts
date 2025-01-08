@@ -45,10 +45,24 @@ async function getUserInfo(): Promise<User | undefined> {
   return mapToUserModel(user);
 }
 
+async function resetPassword(email: string): Promise<void> {
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: import.meta.env.VITE_REDIRECT_URL_RESET_PASSWORD,
+  });
+  if (error) throw new Error("Email doesn't exist");
+}
+
+async function updatePassword(password: string): Promise<void> {
+  const { error } = await supabase.auth.updateUser({ password: password });
+  if (error) throw new Error("Error to update the password");
+}
+
 export {
   signInWithGoogleProvider,
   signInWithEmailAndPassword,
   signUpWithEmailAndPassword,
   signOut,
   getUserInfo,
+  resetPassword,
+  updatePassword,
 };
