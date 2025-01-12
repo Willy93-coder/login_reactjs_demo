@@ -21,7 +21,7 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
         navigate("/");
       } else if (session) {
         if (event === "PASSWORD_RECOVERY") {
-          setToken(session.access_token);
+          // Improve password recovery
         }
         setToken(session.access_token);
         navigate("/home");
