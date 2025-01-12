@@ -1,50 +1,35 @@
-# React + TypeScript + Vite
+# Login demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=fff)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](#)
+[![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
+[![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=react-router&logoColor=white)](#)
+[![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-EC5990?logo=reacthookform&logoColor=fff)](#)
+[![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000?logo=shadcnui&logoColor=fff)](#)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff)](#)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)](#)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](#)
 
-Currently, two official plugins are available:
+This application is a demo showcasing a basic login and registration system. Users can sign in or register either by using their email and password or via their Google account. The login functionality is powered by Supabase, which provides a simple and secure backend for authentication and user management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend is built with React.js, leveraging React Router for navigation, React Hook Form for form management, and Zod for schema validation. The project is fully typed with TypeScript, ensuring a robust development experience. The UI is styled using Shadcn UI, offering a clean and modern design.
 
-## Expanding the ESLint configuration
+This project demonstrates how to implement modern authentication methods efficiently, making it a great starting point for web applications that require user authentication.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Requirements
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js & NPM.
+- Docker.
+- Google cloud.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Setup project
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Install dependencies `npm install`.
+2. Configure your google credentials (`GOOGLE_CLIENT_ID` & `GOOGLE_SECRET`) in `.env` file.
+3. Start Supabase `npx supabase start`.
+4. Start demo `npm run dev`.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Stop project
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Stop server `Ctrl + c`.
+2. Stop Supabase `npx supabase stop`.
