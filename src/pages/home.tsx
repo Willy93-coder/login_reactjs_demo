@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useAuthContext } from "@/hooks/useAuthContext";
+import { useAuthContext } from "@/hooks/use-auth-context";
 import { useGetUserInfo } from "@/hooks/useGetUserInfo";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
-import { useAuthContext } from "@/hooks/useAuthContext";
+import { useAuthContext } from "@/hooks/use-auth-context";
 import { SignInForm } from "@/components/sign-in-form/sign-in-form";
 
 export function Login() {

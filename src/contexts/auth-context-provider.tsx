@@ -1,5 +1,5 @@
 import { signInWithGoogleProvider, signOut } from "@/auth/auth";
-import { AuthContext } from "@/hooks/useAuthContext";
+import { AuthContext } from "@/hooks/use-auth-context";
 import { supabase } from "@/supabase/supabase-client";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
